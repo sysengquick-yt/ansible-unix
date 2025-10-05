@@ -1,7 +1,8 @@
+---
 - name: Tags block
-  tags: [apps_packages_repo]
+  tags: [apps_packages_repos]
   block:
-    - name: Install third-party repos
+    - name: Install third-party yum repos
       ansible.builtin.get_url:
         url: "{{ item.value }}"
         dest: "/etc/yum.repos.d/{{ item.key }}.repo"
