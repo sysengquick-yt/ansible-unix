@@ -22,10 +22,11 @@ RUN apt-get install -y --no-install-recommends \
 # install ansible packages
 RUN python3 -m pip install 'ansible-core<2.18' ansible-lint
 
-# install ansible collections
-COPY collections/requirements.yml /tmp/
-RUN ansible-galaxy collection install -r /tmp/requirements.yml \
-  && rm -f /tmp/requirements.yml
+# install ansible collection requirements
+COPY collections/ansible_collections/sysengquick/unix/galaxy.yml /tmp
+RUN ansible-galaxy collection install /tmp \
+  && rm -rf ~/.ansible/collections/ansible_collections/sysengquick \
+  && rm -f /tmp/galaxy.yml
 
 # enable git bash completion
 RUN echo ". /etc/bash_completion" >> /root/.bashrc
