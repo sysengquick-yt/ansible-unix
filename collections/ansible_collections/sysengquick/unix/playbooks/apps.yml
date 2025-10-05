@@ -1,5 +1,0 @@
----
-- name: Install applications
-  hosts: "{{ targets | default('docker') }}"
-  gather_facts: false
-  roles: [sysengquick.unix.apps]

@@ -1,0 +1,8 @@
+---
+- name: Configure dotfiles and user apps on server hosts
+  hosts: "{{ targets | default('docker') }}"
+  gather_facts: true
+  gather_subset: ["!all", "!min", "distribution"]
+  roles:
+    - sysengquick.unix.apps
+    - sysengquick.unix.dotfiles
