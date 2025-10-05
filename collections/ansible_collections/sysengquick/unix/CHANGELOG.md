@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2.1.0 - 2025-10-05
+
+- fix ansible.posix collection dependency in galaxy.yml
+- remove collections/requirements.yml
+- skip package installs when no packages are specified
+  - works around not having sudo privileges for installs that don't need them
+- replace dotfiles and apps playbooks with server playbook
+  - servers might need user installable applications alongside dotfiles
+- move flatpak package install to be with other package installs
+  - allows non-sudo privileged users to install user-scope flatpaks
+- gather distribution facts to limit package installs to RedHat distros
+  - preparation for supporting non-RedHat distros
+
 ## 2.0.0 - 2025-10-04
 
 - rename collection to sysengquick.unix
