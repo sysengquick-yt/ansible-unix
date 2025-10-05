@@ -1,21 +1,20 @@
 ---
 all:
   children:
-    fedora:
-      hosts:
-        fedora-niri-ks:
-        docker:
-
     niri:
       hosts:
-        fedora-niri-ks:
+        fedora-ks:
         docker:
 
     work:
       hosts:
+        fedora-ks:
         docker:
 
   hosts:
-    fedora-niri-ks:
+    fedora-ks:
     docker:
       ansible_host: host.docker.internal
+
+  vars:
+    ansible_user: proxmox

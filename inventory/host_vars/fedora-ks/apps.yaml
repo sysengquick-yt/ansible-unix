@@ -4,7 +4,3 @@ apps_packages:
   - chromium
   - git
   - vim-default-editor
-
-apps_skip:
-  - 1password
-  - zoom
