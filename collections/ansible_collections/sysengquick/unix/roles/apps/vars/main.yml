@@ -10,6 +10,7 @@ apps_flatpaks_final: |
 apps_packages_final: |
   {{
     apps_packages
+    | union(['flatpak'] if apps_flatpaks_final else [])
     | union(apps_packages_extra)
     | difference(apps_skip)
     | sort
