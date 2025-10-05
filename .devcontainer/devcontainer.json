@@ -1,5 +1,5 @@
 {
-  "name": "sysengquick-fedora-niri",
+  "name": "sysengquick-unix",
   "dockerComposeFile": "compose.yaml",
   "service": "devc",
   "workspaceFolder": "/workspace",
