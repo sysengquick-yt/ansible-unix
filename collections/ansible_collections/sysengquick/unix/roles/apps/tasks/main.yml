@@ -2,11 +2,14 @@
   ansible.builtin.import_tasks: packages.yml
   become: true
   tags: [apps_packages]
+  when: apps_packages_final
 
 - name: Flatpaks tasks
   ansible.builtin.import_tasks: flatpaks.yml
   tags: [apps_flatpaks]
+  when: apps_flatpaks_final
 
 - name: Special tasks
   ansible.builtin.import_tasks: special.yml
   tags: [apps_special]
+  when: apps_special_final
