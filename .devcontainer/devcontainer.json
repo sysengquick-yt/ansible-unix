@@ -8,6 +8,7 @@
     "vscode": {
       "extensions": [
         "be5invis.toml",
+        "charliermarsh.ruff",
         "DavidAnson.vscode-markdownlint",
         "eamodio.gitlens",
         "esbenp.prettier-vscode",
@@ -26,6 +27,12 @@
         },
         "[markdown]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
         },
         "editor.formatOnSave": true,
         "files.associations": {

@@ -28,6 +28,10 @@ RUN ansible-galaxy collection install /tmp \
   && rm -rf ~/.ansible/collections/ansible_collections/sysengquick \
   && rm -f /tmp/galaxy.yml
 
+# install ansible 2.16 in venv
+RUN python3 -m venv /ansible216 \
+    && /ansible216/bin/python3 -m pip install 'ansible-core<2.17'
+
 # enable git bash completion
 RUN echo ". /etc/bash_completion" >> /root/.bashrc
 
