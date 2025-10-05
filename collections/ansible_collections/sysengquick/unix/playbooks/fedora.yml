@@ -1,5 +1,6 @@
 ---
 - name: Configure fedora system
   hosts: "{{ targets | default('docker') }}"
-  gather_facts: false
+  gather_facts: true
+  gather_subset: ["!all", "!min", "distribution"]
   roles: [sysengquick.unix.fedora]
