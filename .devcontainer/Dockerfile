@@ -32,12 +32,11 @@ RUN ansible-galaxy collection install /tmp \
 RUN python3 -m venv /ansible216 \
     && /ansible216/bin/python3 -m pip install 'ansible-core<2.17'
 
-# enable git bash completion
-RUN echo ". /etc/bash_completion" >> /root/.bashrc
+# copy all profile.d scripts
+COPY .devcontainer/files/etc/profile.d/*.sh /etc/profile.d/
 
-# add better prompt
-COPY .devcontainer/prompt.sh /etc/profile.d/prompt.sh
-RUN echo ". /etc/profile.d/prompt.sh" >> /root/.bashrc
+# source all profile.d scripts in bashrc
+RUN echo 'for script in /etc/profile.d/*.sh; do . "$script"; done' >> /root/.bashrc
 
 # use bash instead of python as our default command
 CMD ["/bin/bash"]
