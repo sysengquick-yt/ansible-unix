@@ -5,6 +5,7 @@ services:
     command: sleep infinity
     environment:
       ANSIBLE_CONFIG: /workspace/.devcontainer/ansible.cfg
+    init: true
     network_mode: host
     volumes:
       - ..:/workspace:cached,z
