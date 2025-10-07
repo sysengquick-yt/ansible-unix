@@ -4,5 +4,6 @@ fedora_use_dotfiles: true
 fedora_use_fstab: true
 fedora_use_niri: true
 fedora_use_plymouth: true
+fedora_use_selinux: true
 fedora_use_sddm: true
 fedora_use_sudoers: true
