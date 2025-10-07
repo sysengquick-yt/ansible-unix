@@ -1,0 +1,14 @@
+---
+argument_specs:
+  main:
+    options:
+      selinux_policy:
+        type: str
+        default: targeted
+        choices: [minimum, mls, targeted]
+        description: Which selinux policy to use
+      selinux_state:
+        type: str
+        default: enforcing
+        choices: [enforcing, permissive, disabled]
+        description: The selinux enforcement state

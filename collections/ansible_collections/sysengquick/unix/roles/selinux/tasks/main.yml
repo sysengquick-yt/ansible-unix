@@ -1,0 +1,6 @@
+---
+- name: Set selinux policy
+  ansible.posix.selinux:
+    state: "{{ selinux_state }}"
+    policy: "{{ selinux_policy }}"
+  become: true

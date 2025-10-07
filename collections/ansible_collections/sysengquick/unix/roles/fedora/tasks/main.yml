@@ -35,6 +35,12 @@
   when: fedora_use_fstab | bool
   tags: [fedora_fstab]
 
+- name: Selinux role
+  ansible.builtin.import_role:
+    name: sysengquick.unix.selinux
+  when: fedora_use_selinux | bool
+  tags: [fedora_selinux]
+
 - name: Sudoers role
   ansible.builtin.import_role:
     name: sysengquick.unix.sudoers
