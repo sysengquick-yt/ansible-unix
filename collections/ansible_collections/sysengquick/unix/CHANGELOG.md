@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.2.0 - 2025-10-06
+
+- add selinux role to configure selinux policy
+
 ## 2.1.0 - 2025-10-05
 
 - fix ansible.posix collection dependency in galaxy.yml
