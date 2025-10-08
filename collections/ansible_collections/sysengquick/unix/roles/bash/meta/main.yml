@@ -117,6 +117,10 @@ argument_specs:
         default: true
         description: |
           Whether to include the upstream fedora default sources: [bash_completion]
+      bash_zsh:
+        type: bool
+        default: false
+        description: Template zshrc instead of bashrc/bash_profile
 
 dependencies:
   - role: sysengquick.unix.user

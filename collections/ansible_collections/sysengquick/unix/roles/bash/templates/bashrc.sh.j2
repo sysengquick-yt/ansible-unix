@@ -1,13 +1,15 @@
 # THIS FILE WAS CREATED BY ANSIBLE | LOCAL CHANGES MAY BE OVERWRITTEN
 # ansible template: sysengquick.unix.bash/templates/bashrc.sh.j2
 
-# .bashrc
+# {% if bash_zsh %}.zshrc{% else %}.bashrc{% endif %}
 
+{% if not bash_zsh %}
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+{% endif %}
 # User specific environment
 {% set user_paths = bash_paths_final | join(':') %}
 if ! [[ "$PATH" =~ "{{ user_paths }}:" ]]; then
@@ -40,6 +42,11 @@ function {{ item.key }} {
 {% endfor %}
 # end bash functions
 
+{% if bash_zsh %}
+# zsh tab completion
+autoload -Uz compinit && compinit
+
+{% endif %}
 # begin sourced files
 {% for source in bash_sources_final %}
 [ -f {{ source }} ] && . {{ source | quote }}
