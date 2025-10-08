@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2.4.0 - 2025-10-08
+
+- fix ansible ssh config bug in devcontainer
+  - create or copy the ssh config to a known location
+  - prevents ansible from not finding an ssh config file and erroring out
+    - this can occur if no ssh config ever existed, or if we are trying to template the ssh config
+- handle platform specific PKCS11 library files
+  - The location of PKCS11Provider is different on every OS
+  - Specify ~ as the value and the template will try to find the right location
+    - Should work for Windows, Debian/RedHat (and derivatives), and macOS
+- add support for zsh
+  - zsh config differs slightly from bash, so handle the differences with the bash_zsh flag
+
 ## 2.3.0 - 2025-10-07
 
 - add become support for configs files
