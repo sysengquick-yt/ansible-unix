@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.3.0 - 2025-10-07
+
+- add become support for configs files
+
 ## 2.2.0 - 2025-10-06
 
 - add selinux role to configure selinux policy
