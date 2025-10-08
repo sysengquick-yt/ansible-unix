@@ -5,6 +5,7 @@
     dest: "{{ configs_opts.directory if configs_opts.directory else user_info.home }}/{{ filename }}"
     mode: "0644"
     backup: true
+  become: "{{ configs_opts.become }}"
   loop: "{{ configs_opts.files }}"
   loop_control:
     loop_var: filename

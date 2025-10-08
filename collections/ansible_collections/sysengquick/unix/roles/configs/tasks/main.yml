@@ -3,6 +3,7 @@
   vars:
     configs_opts: "{{ configs_defaults | combine(item.value) }}"
     configs_defaults:
+      become: false
       directory: "{{ user_info.home }}/.config/{{ item.key }}"
       files: ["{{ item.key }}.conf"]
   block:
@@ -10,9 +11,8 @@
       ansible.builtin.file:
         path: "{{ configs_opts.directory }}"
         state: directory
-        owner: "{{ ansible_user }}"
-        group: "{{ ansible_user }}"
         mode: "0755"
+      become: "{{ configs_opts.become }}"
       loop: "{{ configs_files_final }}"
       when: configs_opts.directory
 
