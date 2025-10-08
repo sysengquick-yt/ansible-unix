@@ -4,6 +4,8 @@
   "service": "devc",
   "workspaceFolder": "/workspace",
 
+  "postStartCommand": "touch /tmp/ssh-config; test -r /root/.ssh/config && cp /root/.ssh/config /tmp/ssh-config",
+
   "customizations": {
     "vscode": {
       "extensions": [

@@ -3,8 +3,6 @@
   ansible.builtin.file:
     path: "{{ user_info.home }}/.ssh"
     state: directory
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     mode: "0700"
   tags: [dotfiles_ssh_configs, dotfiles_ssh_identity]
 
@@ -13,8 +11,6 @@
     src: "{{ item }}.j2"
     dest: "{{ user_info.home }}/.ssh/{{ item }}"
     backup: true
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     mode: "0600"
   loop: "{{ ssh_config_templates }}"
   tags: dotfiles_ssh_configs
@@ -25,8 +21,6 @@
       {{ item.value }}
     dest: "{{ user_info.home }}/.ssh/{{ item.key }}.pub"
     backup: true
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     mode: "0600"
   loop: "{{ ssh_identity_keys_final }}"
   tags: dotfiles_ssh_identity

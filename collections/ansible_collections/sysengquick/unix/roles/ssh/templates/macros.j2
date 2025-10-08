@@ -26,13 +26,15 @@
 
 {##############################################################################}
 {# returns string of SSH options properly indented #}
-{% macro ssh_options(options) -%}
+{% macro ssh_options(options, pkcs11lib) -%}
 
 {# loop over the key/value pairs in our options#}
 {% for k,v in options.items() %}
+{% if k == 'PKCS11Provider' and not v %}
+    {{ k }} {{ pkcs11lib }}
 {# if the value is singular, e.g. not a list #}
 {# display the key with the single value #}
-{% if v is string or v is number %}
+{% elif v is string or v is number %}
     {{ k }} {{ v }}
 {% else -%}
 

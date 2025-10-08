@@ -31,3 +31,5 @@ bash_umask: "0022"
 bash_use_upstream_aliases: true
 bash_use_upstream_paths: true
 bash_use_upstream_sources: true
+
+bash_zsh: false

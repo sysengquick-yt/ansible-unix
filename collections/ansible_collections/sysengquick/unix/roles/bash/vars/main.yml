@@ -62,7 +62,11 @@ bash_sources_final: |
     | sort
   }}
 
-bash_templates: [bash_profile, bashrc]
+bash_templates: |
+  {{
+    ["zshrc"] if bash_zsh
+    else ["bash_profile", "bashrc"]
+  }}
 
 bash_upstream_aliases:
   ls: ls --color=auto

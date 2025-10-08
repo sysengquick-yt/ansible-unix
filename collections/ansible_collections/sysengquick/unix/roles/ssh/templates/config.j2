@@ -17,7 +17,7 @@
 {# Add section header and SSH options #}
 {% for pattern, options in final_options.items() %}
 {{ section | capitalize }} {{ pattern }}
-{{ macros.ssh_options(options) }}
+{{ macros.ssh_options(options, ssh_pkcs11_lib[ansible_facts.os_family]) }}
 {% endfor %}
 {% endfor -%}
 
@@ -25,6 +25,6 @@
 # begin ssh common options
 {% if ssh_common_options_final %}
 Host *
-{{ macros.ssh_options(ssh_common_options_final) }}
+{{ macros.ssh_options(ssh_common_options_final, ssh_pkcs11_lib[ansible_facts.os_family]) }}
 {%- endif %}
 # end ssh common options
