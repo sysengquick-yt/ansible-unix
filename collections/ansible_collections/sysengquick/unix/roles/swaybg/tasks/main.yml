@@ -3,8 +3,6 @@
   ansible.builtin.template:
     src: "swaybg.service.j2"
     dest: "{{ user_info.home }}/.config/systemd/user/swaybg.service"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     mode: "0644"
     backup: true
   notify: systemd_user_daemon_reload
