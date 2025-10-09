@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.5.0 - 2025-10-08
+
+- add support for fedora asahi linux
+  - fix copr repo
+  - add 1password special app install
+  - fix uv special app install
+
 ## 2.4.0 - 2025-10-08
 
 - fix ansible ssh config bug in devcontainer
