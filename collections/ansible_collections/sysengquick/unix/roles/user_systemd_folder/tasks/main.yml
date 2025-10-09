@@ -3,6 +3,4 @@
   ansible.builtin.file:
     state: directory
     dest: "{{ user_info.home }}/.config/systemd/user"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     mode: "0755"

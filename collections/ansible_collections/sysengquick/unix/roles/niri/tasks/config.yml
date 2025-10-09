@@ -3,15 +3,11 @@
   ansible.builtin.file:
     state: directory
     dest: "{{ user_info.home }}/.config/niri"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     mode: "0755"
 
 - name: Template niri config
   ansible.builtin.template:
     src: "config.kdl.j2"
     dest: "{{ user_info.home }}/.config/niri/config.kdl"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
     mode: "0644"
     backup: true

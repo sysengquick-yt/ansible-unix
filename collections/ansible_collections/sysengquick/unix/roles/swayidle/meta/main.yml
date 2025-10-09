@@ -24,11 +24,11 @@ argument_specs:
             description: Command to run when logind is unlocked
       swayidle_timeout_monitors:
         type: int
-        default: 960
+        default: 601
         description: Timeout to turn the monitors off in seconds
       swayidle_timeout_screenlock:
         type: int
-        default: 900
+        default: 600
         description: Timeout to lock the screen in seconds
       swayidle_timeouts:
         type: list
