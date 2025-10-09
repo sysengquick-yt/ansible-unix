@@ -1,15 +1,15 @@
 # THIS FILE WAS CREATED BY ANSIBLE | LOCAL CHANGES MAY BE OVERWRITTEN
 # ansible template: sysengquick.unix.bash/templates/bashrc.sh.j2
 
-# {% if bash_zsh %}.zshrc{% else %}.bashrc{% endif %}
-
+# {% if bash_zsh %}.zshrc{% else %}.bashrc{% endif +%}
 {% if not bash_zsh %}
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
-
 {% endif %}
+
 # User specific environment
 {% set user_paths = bash_paths_final | join(':') %}
 if ! [[ "$PATH" =~ "{{ user_paths }}:" ]]; then

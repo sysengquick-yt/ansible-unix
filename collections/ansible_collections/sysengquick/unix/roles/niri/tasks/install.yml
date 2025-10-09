@@ -4,6 +4,7 @@
     host: copr.fedorainfracloud.org
     state: enabled
     name: yalter/niri
+    chroot: "fedora-{{ ansible_facts.distribution_version }}-{{ ansible_facts.architecture }}"
 
 - name: Install niri packages
   ansible.builtin.package:
