@@ -27,7 +27,7 @@
 
         - name: Download uv
           ansible.builtin.get_url:
-            url: "https://github.com/astral-sh/uv/releases/download/{{ uv_version }}/uv-x86_64-unknown-linux-gnu.tar.gz"
+            url: "https://github.com/astral-sh/uv/releases/download/{{ uv_version }}/uv-{{ ansible_facts.architecture }}-unknown-linux-gnu.tar.gz"
             dest: "{{ uv_tarball }}"
             mode: "0644"
           vars:
@@ -41,7 +41,7 @@
 
         - name: Copy uv binary to /usr/local/bin
           ansible.builtin.copy:
-            src: "{{ apps_tmpdir.path }}/uv-x86_64-unknown-linux-gnu/uv"
+            src: "{{ apps_tmpdir.path }}/uv-{{ ansible_facts.architecture }}-unknown-linux-gnu/uv"
             dest: /usr/local/bin/
             mode: "0755"
             remote_src: true
