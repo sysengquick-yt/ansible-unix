@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.5.1 - 2025-10-08
+
+- remove pointless user/group settings
+- add docs for roles and collection
+
 ## 2.5.0 - 2025-10-08
 
 - add support for fedora asahi linux
