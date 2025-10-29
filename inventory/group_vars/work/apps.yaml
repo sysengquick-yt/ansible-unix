@@ -23,7 +23,7 @@ apps_repos:
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
 
 apps_rpms:
-  code: https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64
+  1password: https://downloads.1password.com/linux/rpm/stable/x86_64/1password-latest.rpm
 
 # add apps_special_tailscale_authkey if you want to start the tailnet
 # do not place this in git -- it's a password!
