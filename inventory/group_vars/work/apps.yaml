@@ -12,7 +12,10 @@ apps_packages:
   - vim-default-editor
 
 apps_repos:
-  brave-browser: https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+  brave-browser:
+    description: Brave Browser
+    baseurl: https://brave-browser-rpm-release.s3.brave.com/$basearch
+    gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
 apps_rpms:
   code: https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64

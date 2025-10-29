@@ -3,9 +3,14 @@
   tags: [apps_packages_repos]
   block:
     - name: Install third-party yum repos
-      ansible.builtin.get_url:
-        url: "{{ item.value }}"
-        dest: "/etc/yum.repos.d/{{ item.key }}.repo"
+      ansible.builtin.yum_repository:
+        state: present
+        name: "{{ item.key }}"
+        baseurl: "{{ item.value.baseurl }}"
+        description: "{{ item.value.description }}"
+        enabled: true
+        gpgcheck: "{{ true if item.value.gpgkey is defined else false }}"
+        gpgkey: "{{ item.value.gpgkey | default(omit) }}"
         mode: "0644"
       loop: "{{ apps_repos_final }}"
 
