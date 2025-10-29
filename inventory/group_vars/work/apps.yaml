@@ -6,6 +6,7 @@ apps_packages:
   - brave-browser
   - btop
   - chromium
+  - code
   - firefox
   - kitty
   - git
@@ -16,6 +17,10 @@ apps_repos:
     description: Brave Browser
     baseurl: https://brave-browser-rpm-release.s3.brave.com/$basearch
     gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+  code:
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
 
 apps_rpms:
   code: https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64
