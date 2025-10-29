@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.0 - 2025-10-29
+
+- update app repo handling to support repos from non-url sources
+- move vs code from RPM to repo install
+
 ## 2.5.1 - 2025-10-08
 
 - remove pointless user/group settings
