@@ -1,0 +1,25 @@
+---
+- name: Become root
+  become: true
+  block:
+    - name: Enable firewalld service
+      ansible.builtin.service:
+        name: firewalld
+        enabled: true
+        state: started
+
+    - name: Set default firewalld zone
+      ansible.builtin.command: >-
+        firewall-cmd --set-default-zone={{ firewalld_default_zone }}
+      changed_when: >-
+        "ZONE_ALREADY_SET" not in firewalld_result.stderr
+      register: firewalld_result
+
+    - name: Set interface specific firewalld zones
+      ansible.posix.firewalld:
+        state: enabled
+        interface: "{{ item.key }}"
+        zone: "{{ item.value }}"
+        immediate: true
+        permanent: true
+      loop: "{{ firewalld_interface_zones | dict2items }}"

@@ -1,0 +1,3 @@
+---
+firewalld_default_zone: drop
+firewalld_interface_zones: {}

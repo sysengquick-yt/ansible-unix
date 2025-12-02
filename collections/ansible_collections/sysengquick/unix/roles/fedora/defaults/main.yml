@@ -1,6 +1,7 @@
 ---
 fedora_use_apps: true
 fedora_use_dotfiles: true
+fedora_use_firewalld: true
 fedora_use_fstab: true
 fedora_use_niri: true
 fedora_use_plymouth: true

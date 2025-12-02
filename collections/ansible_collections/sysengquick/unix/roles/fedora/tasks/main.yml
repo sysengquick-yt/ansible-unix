@@ -29,6 +29,12 @@
   when: fedora_use_dotfiles | bool
   tags: [fedora_dotfiles]
 
+- name: Firewalld role
+  ansible.builtin.import_role:
+    name: sysengquick.unix.firewalld
+  when: fedora_use_firewalld | bool
+  tags: [fedora_firewalld]
+
 - name: Fstab role
   ansible.builtin.import_role:
     name: sysengquick.unix.fstab
