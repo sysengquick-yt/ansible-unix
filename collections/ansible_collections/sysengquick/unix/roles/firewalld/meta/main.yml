@@ -1,0 +1,31 @@
+---
+argument_specs:
+  main:
+    options:
+      firewalld_default_zone:
+        type: str
+        default: drop
+        description: Which zone to use as default
+        choices:
+          [
+            FedoraServer,
+            FedoraWorkstation,
+            block,
+            dmz,
+            drop,
+            external,
+            home,
+            internal,
+            nm-shared,
+            public,
+            trusted,
+            work,
+          ]
+      firewalld_interface_zones:
+        type: dict
+        default: {}
+        description: |
+          Map of interfaces to zones, e.g.
+
+          firewalld_interface_zones:
+            tailscale0: trusted
