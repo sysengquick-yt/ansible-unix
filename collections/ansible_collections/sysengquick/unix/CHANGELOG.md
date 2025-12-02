@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.1.0 - 2025-12-02
+
+- add firewalld configuration
+
 ## 3.0.0 - 2025-10-29
 
 - update app repo handling to support repos from non-url sources
