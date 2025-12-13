@@ -5,8 +5,8 @@ apps_packages: []
 apps_packages_extra: []
 apps_repos: {}
 apps_repos_extra: {}
-apps_rpms: {}
-apps_rpms_extra: {}
+apps_pkgs: {}
+apps_pkgs_extra: {}
 apps_skip: []
 apps_special: []
 apps_special_extra: []

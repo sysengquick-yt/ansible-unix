@@ -26,10 +26,10 @@ apps_repos_final: |
     | sort(attribute='key')
   }}
 
-apps_rpms_final: |
+apps_pkgs_final: |
   {{
-    apps_rpms
-    | combine(apps_rpms_extra)
+    apps_pkgs
+    | combine(apps_pkgs_extra)
     | dict2items
     | rejectattr('key', 'in', apps_skip)
     | sort(attribute='key')

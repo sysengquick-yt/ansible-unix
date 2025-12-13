@@ -38,7 +38,7 @@ None.
     apps_special: [tailscale]
     apps_repos:
       brave-browser: https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-    apps_rpms:
+    apps_pkgs:
       code: https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64
 ```
 
