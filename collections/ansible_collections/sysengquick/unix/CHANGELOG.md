@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.0.0 - 2025-12-13
+
+- add debian host support (PopOS / Linux Mint Debian Edition)
+
 ## 3.2.0 - 2025-12-11
 
 - add CUPS configuration
