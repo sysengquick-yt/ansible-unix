@@ -1,0 +1,24 @@
+---
+- name: Apps role
+  ansible.builtin.import_role:
+    name: sysengquick.unix.apps
+  when: debian_use_apps | bool
+  tags: [debian_apps]
+
+- name: Dotfiles role
+  ansible.builtin.import_role:
+    name: sysengquick.unix.dotfiles
+  when: debian_use_dotfiles | bool
+  tags: [debian_dotfiles]
+
+- name: Fstab role
+  ansible.builtin.import_role:
+    name: sysengquick.unix.fstab
+  when: debian_use_fstab | bool
+  tags: [debian_fstab]
+
+- name: Sudoers role
+  ansible.builtin.import_role:
+    name: sysengquick.unix.sudoers
+  when: debian_use_sudoers | bool
+  tags: [debian_sudoers]

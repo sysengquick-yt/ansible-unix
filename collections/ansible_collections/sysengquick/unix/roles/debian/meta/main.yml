@@ -1,0 +1,20 @@
+---
+argument_specs:
+  main:
+    options:
+      debian_use_apps:
+        type: bool
+        default: true
+        description: Install and configure apps
+      debian_use_dotfiles:
+        type: bool
+        default: true
+        description: Install and configure dotfiles
+      debian_use_fstab:
+        type: bool
+        default: true
+        description: Setup /etc/fstab mounts
+      debian_use_sudoers:
+        type: bool
+        default: true
+        description: Setup /etc/sudoers.d commands

@@ -1,0 +1,5 @@
+---
+debian_use_apps: true
+debian_use_dotfiles: true
+debian_use_fstab: true
+debian_use_sudoers: true
