@@ -21,7 +21,8 @@ ssh_config_templates: [config, authorized_keys]
 
 ssh_pkcs11_lib:
   Darwin: /usr/lib/ssh-keychain.dylib
-  Debian: /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so
+  Debian: &debian /usr/lib/x86_64-linux-gnu/opensc-pkcs11.so
+  LMDE: *debian
   RedHat: /usr/lib64/pkcs11/opensc-pkcs11.so
   Windows: "C:\\Program Files\\OpenSC Project\\OpenSC\\pkcs11\\opensc-pkcs11.dll"
 

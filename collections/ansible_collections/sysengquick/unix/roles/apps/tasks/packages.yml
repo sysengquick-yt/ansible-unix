@@ -1,0 +1,66 @@
+---
+- name: RedHat repo packages block
+  tags: [apps_packages_repos]
+  when: ansible_facts.os_family == 'RedHat'
+  block:
+    - name: Install third-party yum repos
+      ansible.builtin.yum_repository:
+        state: present
+        name: "{{ item.key }}"
+        baseurl: "{{ item.value.baseurl }}"
+        description: "{{ item.value.description }}"
+        enabled: true
+        gpgcheck: "{{ true if item.value.gpgkey is defined else false }}"
+        gpgkey: "{{ item.value.gpgkey | default(omit) }}"
+        mode: "0644"
+      loop: "{{ apps_repos_final }}"
+
+    - name: Install RedHat packages
+      ansible.builtin.dnf:
+        name: "{{ apps_packages_final }}"
+        state: "{{ 'latest' if apps_upgrade | bool else 'present' }}"
+        update_only: "{{ apps_upgrade | bool }}"
+        allowerasing: true
+
+- name: Debian repo packages block
+  tags: [apps_packages_repos]
+  when: ansible_facts.os_family != 'RedHat'
+  block:
+    # TODO: fix this if we have any debian repos
+    # - name: Install third-party yum repos
+    #   ansible.builtin.yum_repository:
+    #     state: present
+    #     name: "{{ item.key }}"
+    #     baseurl: "{{ item.value.baseurl }}"
+    #     description: "{{ item.value.description }}"
+    #     enabled: true
+    #     gpgcheck: "{{ true if item.value.gpgkey is defined else false }}"
+    #     gpgkey: "{{ item.value.gpgkey | default(omit) }}"
+    #     mode: "0644"
+    #   loop: "{{ apps_repos_final }}"
+
+    - name: Install Debian packages
+      ansible.builtin.apt:
+        name: "{{ apps_packages_final }}"
+        state: "{{ 'latest' if apps_upgrade | bool else 'present' }}"
+        only_upgrade: "{{ apps_upgrade | bool }}"
+
+- name: Tags block
+  tags: [apps_packages]
+  block:
+    - name: Create temp dir for packages
+      ansible.builtin.tempfile:
+        state: directory
+      register: apps_tmpdir
+
+    - name: Gather facts about installed packages
+      ansible.builtin.package_facts:
+
+    - name: Install packages
+      ansible.builtin.include_tasks: includes/package.yml
+      loop: "{{ apps_pkgs_final }}"
+  always:
+    - name: Remove tempdir for package downloads
+      ansible.builtin.file:
+        state: absent
+        path: "{{ apps_tmpdir.path }}"

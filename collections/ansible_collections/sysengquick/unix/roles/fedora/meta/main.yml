@@ -6,6 +6,10 @@ argument_specs:
         type: bool
         default: true
         description: Install and configure apps
+      fedora_use_cups:
+        type: bool
+        default: true
+        description: Install and configure CUPS
       fedora_use_dotfiles:
         type: bool
         default: true

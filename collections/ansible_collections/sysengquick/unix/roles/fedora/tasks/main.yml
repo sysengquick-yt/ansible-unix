@@ -23,6 +23,12 @@
   when: fedora_use_apps | bool
   tags: [fedora_apps]
 
+- name: CUPS role
+  ansible.builtin.import_role:
+    name: sysengquick.unix.cups
+  when: fedora_use_cups | bool
+  tags: [fedora_cups]
+
 - name: Dotfiles role
   ansible.builtin.import_role:
     name: sysengquick.unix.dotfiles

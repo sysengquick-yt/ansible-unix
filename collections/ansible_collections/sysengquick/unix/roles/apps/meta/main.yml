@@ -25,19 +25,19 @@ argument_specs:
       apps_repos:
         type: dict
         default: {}
-        description: Default rpm repos to add
+        description: Default repos to add
       apps_repos_extra:
         type: dict
         default: {}
-        description: Extra rpm repos to add
-      apps_rpms:
+        description: Extra repos to add
+      apps_pkgs:
         type: dict
         default: {}
-        description: Default rpm packages to install
-      apps_rpms_extra:
+        description: Default packages to install
+      apps_pkgs_extra:
         type: dict
         default: {}
-        description: Extra rpm packages to install
+        description: Extra packages to install
       apps_skip:
         type: list
         default: []

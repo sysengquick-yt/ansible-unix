@@ -1,5 +1,6 @@
 ---
 fedora_use_apps: true
+fedora_use_cups: true
 fedora_use_dotfiles: true
 fedora_use_firewalld: true
 fedora_use_fstab: true

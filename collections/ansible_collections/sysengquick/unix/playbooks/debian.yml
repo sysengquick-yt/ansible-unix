@@ -1,0 +1,6 @@
+---
+- name: Configure debian system
+  hosts: "{{ targets | default('docker') }}"
+  gather_facts: true
+  gather_subset: ["!all", "!min", "distribution"]
+  roles: [sysengquick.unix.debian]

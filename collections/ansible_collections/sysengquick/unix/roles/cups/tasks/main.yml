@@ -1,0 +1,14 @@
+---
+- name: Become block
+  become: true
+  block:
+    - name: Install CUPS packages
+      ansible.builtin.dnf:
+        name: cups
+        state: present
+
+    - name: Start CUPS service
+      ansible.builtin.service:
+        name: cups
+        enabled: true
+        state: started
