@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.0 - 2026-02-12
+
+- use official fedora repos for niri
+
 ## 4.0.0 - 2025-12-13
 
 - add debian host support (PopOS / Linux Mint Debian Edition)
