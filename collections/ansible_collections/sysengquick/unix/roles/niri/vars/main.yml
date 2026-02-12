@@ -36,6 +36,8 @@ niri_packages:
   - NetworkManager-wifi
   - niri
   - pasystray
+  - swaybg
+  - swayidle
 
 niri_polkit_agents:
   kde:
