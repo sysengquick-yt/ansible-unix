@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.2.0 - 2026-02-13
+
+- add firewalld_trusted_subnets
+
 ## 4.1.0 - 2026-02-12
 
 - use official fedora repos for niri
