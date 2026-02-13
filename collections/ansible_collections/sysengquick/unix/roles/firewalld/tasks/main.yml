@@ -23,3 +23,12 @@
         immediate: true
         permanent: true
       loop: "{{ firewalld_interface_zones | dict2items }}"
+
+    - name: Trust defined subnets
+      ansible.posix.firewalld:
+        state: enabled
+        source: "{{ item }}"
+        immediate: true
+        permanent: true
+        zone: trusted
+      loop: "{{ firewalld_trusted_subnets }}"

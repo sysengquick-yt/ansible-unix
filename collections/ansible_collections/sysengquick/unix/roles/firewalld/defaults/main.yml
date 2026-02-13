@@ -1,3 +1,4 @@
 ---
 firewalld_default_zone: drop
 firewalld_interface_zones: {}
+firewalld_trusted_subnets: []
